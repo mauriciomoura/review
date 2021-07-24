@@ -12,6 +12,26 @@ schemes:
 - "https"
 - "http"
 paths:
+  "/reviews":
+    post:
+      tags:
+      - "Review"
+      summary: "Adicionar uma avaliação."
+      operationId: "createReview"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Objeto avaliação para ser criado."
+        required: true
+        schema:
+          $ref: "#/definitions/Review"
+      responses:
+        "201":
+          description: "Created"
   "/reviews/{reviewId}":
     get:
       tags:
@@ -33,30 +53,10 @@ paths:
           description: "Sucesso!"
         "404":
           description: "Review not found."
-  "/reviews":
-    post:
-      tags:
-      - "Review"
-      summary: "Adicionar uma avaliação."
-      operationId: "createReview"
-      consumes:
-      - "application/json"
-      produces:
-      - "application/json"
-      parameters:
-      - in: "body"
-        name: "body"
-        description: "Objeto avaliação para ser criado."
-        required: true
-        schema:
-          $ref: "#/definitions/Review"
-      responses:
-        "201":
-          description: "Created"
     put:
       tags:
       - "Review"
-      summary: "Ataualizar uma avaliação"
+      summary: "Atualizar uma avaliação"
       operationId: "updateReview"
       consumes:
       - "application/json"
