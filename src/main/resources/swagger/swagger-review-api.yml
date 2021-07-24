@@ -3,13 +3,12 @@ info:
   description: "Uma API para cadastro de avaliações."
   version: "1.0.0"
   title: "Swagger Review"
-host: "localhost:8080"
+host: "localhost:8081"
 basePath: "/api"
 tags:
 - name: "Review"
   description: "Nossas APIs de avaliação."
 schemes:
-- "https"
 - "http"
 paths:
   "/reviews":
@@ -32,7 +31,7 @@ paths:
       responses:
         "201":
           description: "Created"
-  "/reviews/{reviewId}":
+  "/reviews/{id}":
     get:
       tags:
       - "Review"
@@ -42,9 +41,9 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "reviewId"
+      - name: "id"
         in: "path"
-        description: "ID da avaliação"
+        description: "ID da avaliação."
         required: true
         type: "integer"
         format: "int64"
@@ -63,6 +62,12 @@ paths:
       produces:
       - "application/json"
       parameters:
+      - name: "id"
+        in: "path"
+        description: "ID da avaliação a ser atualizada."
+        required: true
+        type: "integer"
+        format: "int64"
       - in: "body"
         name: "body"
         description: "Objeto avaliação para ser criado."
@@ -82,7 +87,7 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "reviewId"
+      - name: "id"
         in: "path"
         description: "Id da avaliação para ser deletada"
         required: true
