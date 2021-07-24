@@ -57,7 +57,12 @@ public class ReviewController {
     @PutMapping("/{id}")
     public Review updateReview(@RequestBody Review review, @PathVariable Long id){
         //TODO Implement error handler
-        reviewRepository.findById(id).orElseThrow(null);
+        Review reviewToUpdate = reviewRepository.findById(id).orElseThrow(null);
+        if(id.equals(reviewToUpdate.getId())){
+            review.setId(id);
+        }else{
+            //TODO Implement error handler
+        }
         
         return reviewRepository.save(review);
     }

@@ -1,7 +1,15 @@
-<html>
-    <head><title>Home Page</title></head>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title th:utext="${title}" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    </head>
     <body>
-        <h1>Hello !</h1>
-        <p>Welcome to <span th:text="${appName}">Our App</span></p>
+        <h1 th:utext="${title}" />
+        <h2 th:utext="${menu}" />
+        <a th:href="@{/reviews}">Lista de Avaliações</a>  
+        <br/><br/>
+        <div>Copyright <a th:href="@{https://www.instagram.com/projetoceos}">@projetoceos</a></div>
     </body>
 </html>
