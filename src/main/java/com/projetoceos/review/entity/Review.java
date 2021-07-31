@@ -26,4 +26,5 @@ public class Review {
 
     @Column(nullable = true)
     private String description;
+
 }
