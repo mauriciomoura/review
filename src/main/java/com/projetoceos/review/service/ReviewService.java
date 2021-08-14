@@ -43,7 +43,7 @@ public class ReviewService {
     }
 
     public Review save(Review review) throws BadResourceException, ResourceAlreadyExistsException {
-        if (review.getRating() >= 0) {
+        if (review.getRating() >= 0 && review.getRating() <= 5) {
             if (existsById(review.getId())) {
                 throw new ResourceAlreadyExistsException("Review with id: " + review.getId() + " already exists");
             }
@@ -56,7 +56,7 @@ public class ReviewService {
     }
 
     public void update(Review review) throws BadResourceException, ResourceNotFoundException {
-        if (review.getRating() >= 0) {
+        if (review.getRating() >= 0 && review.getRating() <= 5) {
             if (!existsById(review.getId())) {
                 throw new ResourceNotFoundException("Cannot find Review with id: " + review.getId());
             }
