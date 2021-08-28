@@ -2,6 +2,8 @@ package com.projetoceos.review.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import com.projetoceos.review.entity.Review;
 import com.projetoceos.review.repository.ReviewRepository;
 
@@ -42,7 +44,7 @@ public class ReviewController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Review create(@RequestBody Review review){
+    public Review create(@Valid @RequestBody Review review){
         return reviewRepository.save(review);
     }
 
@@ -55,7 +57,7 @@ public class ReviewController {
     }
 
     @PutMapping("/{id}")
-    public Review updateReview(@RequestBody Review review, @PathVariable Long id){
+    public Review updateReview(@Valid Review review, @PathVariable Long id){
         //TODO Implement error handler
         Review reviewToUpdate = reviewRepository.findById(id).orElseThrow(null);
         if(id.equals(reviewToUpdate.getId())){
