@@ -119,10 +119,8 @@ paths:
       responses:
         '200':
           description: "Lista de resultadas da busca de games."
-          content:
-            application/json:
-              schema:
-                $ref: '#/definitions/GameResultsDTO'
+          schema:
+            $ref: '#/definitions/GameResultsDTO'
   "/games/{id}":
     get:
       tags:
@@ -143,10 +141,8 @@ paths:
       responses:
         '200':
           description: "Detalhes do jogo."
-          content:
-            application/json:
-              schema:
-                $ref: '#/definitions/GameDTO'
+          schema:
+            $ref: '#/definitions/GameDTO'
 definitions:
   Review:
     type: "object"
