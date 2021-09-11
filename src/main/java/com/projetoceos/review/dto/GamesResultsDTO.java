@@ -11,6 +11,6 @@ public class GamesResultsDTO {
     
     private String name;
 
-    private String publishedAt;
+    private Long publishedAt;
 
 }
