@@ -9,14 +9,17 @@ spring:
         suffix: '.html'
 
     datasource:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://localhost:3306/reviewdb
-        username: root
-        password: reviewdb
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/reviewdb
+        username: postgres
+        password: postgres
     jpa:
-        hibernate.ddl-auto: update
         generate-ddl: true
         show-sql: true
+        hibernate:
+            ddl-auto: update
+        database: postgresql
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
         
 server:
     port: 8081
