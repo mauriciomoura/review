@@ -10,17 +10,16 @@ spring:
 
     datasource:
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/reviewdb
-        username: postgres
-        password: postgres
+        url: jdbc:postgresql://ec2-3-209-65-193.compute-1.amazonaws.com:5432/ddl8nttqis05in
+        username: hamlgcebswgrpz
+        password: df793145e3ae9c3f29da745f9388f892be1f14eec25ea477435cd12f1120e7db
     jpa:
         generate-ddl: true
         show-sql: true
         hibernate:
-            ddl-auto: update
+            ddl-auto: create-drop
         database: postgresql
         database-platform: org.hibernate.dialect.PostgreSQLDialect
-        
 server:
     port: 8081
 
